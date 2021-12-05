@@ -8,6 +8,8 @@ namespace Assignment_1
     {
         static void Main(string[] args)
         {
+            LatinSquare_BackTracking.SetLatinSquareGrid(4);
+            LatinSquare_BackTracking.Main_LatinSquare_BackTracking();
 
             Console.WriteLine("My World!");
             Console.ReadLine();
