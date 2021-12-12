@@ -1,4 +1,5 @@
-﻿using Assignment_1._2_LatinSquare;
+﻿using Assignment_1._1_SocialGolfersProblem;
+using Assignment_1._2_LatinSquare;
 using System;
 using System.Linq;
 
@@ -8,10 +9,9 @@ namespace Assignment_1
     {
         static void Main(string[] args)
         {
-            LatinSquare_BackTracking.SetLatinSquareGrid(4);
-            LatinSquare_BackTracking.Main_LatinSquare_BackTracking();
+            //SGP_BFS_Init.Init_Main();
+            SGP_DFS_Init.Init_Main();
 
-            Console.WriteLine("My World!");
             Console.ReadLine();
         }
     }
