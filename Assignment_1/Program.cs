@@ -10,7 +10,13 @@ namespace Assignment_1
         static void Main(string[] args)
         {
             //SGP_BFS_Init.Init_Main();
-            SGP_DFS_Init.Init_Main();
+            //SGP_DFS_Init.Init_Main();
+
+
+
+            LatinSquare_Init.Drive();
+
+
 
             Console.ReadLine();
         }
