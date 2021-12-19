@@ -71,6 +71,7 @@ namespace Assignment_1._1_SocialGolfersProblem
                 childSGP1.Representation = RotateLeft(childSGP1.Representation, 3);
                 childSGP1.Representation = RotateLeft(childSGP1.Representation, 3);
 
+                childSGP1.Level = tempSGP.Level+i+1;
                 tempSGP.Children.Add(childSGP1);
                 tempSGP.Children.Add(ShiftColumn(childSGP1));
 
@@ -91,7 +92,7 @@ namespace Assignment_1._1_SocialGolfersProblem
                 for (int j = 0; j < projection.GetLength(1); j++)
                     projection[i, j] = projectTemp[j];
             }
-            return new SGP(new Representation(projection));
+            return new SGP(new Representation(projection), 0);
         }
 
         public bool Compare(SGP candidateSGP, List<SGP> currentList, int layer = 0) => CheckValidationInsertion(currentList, candidateSGP, layer);

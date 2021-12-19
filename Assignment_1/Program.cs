@@ -9,14 +9,12 @@ namespace Assignment_1
     {
         static void Main(string[] args)
         {
-            //SGP_BFS_Init.Init_Main();
-            //SGP_DFS_Init.Init_Main();
+            SGP_Init.Drive();
 
 
 
-            LatinSquare_Init.Drive();
 
-
+            //LatinSquare_Init.Drive();
 
             Console.ReadLine();
         }
