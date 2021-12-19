@@ -27,7 +27,7 @@ namespace Assignment_1._1_SocialGolfersProblem
                         SGP_Backtracking.Main_SGP_Backtracking();
                         break;
                     case 4://Forwardchecking
-
+                        SGP_ForwardChecking.Main_SGP_ForwardChecking();
                         break;
                 }
             }

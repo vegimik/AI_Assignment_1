@@ -25,7 +25,7 @@ namespace Assignment_1._1_SocialGolfersProblem
                     ClosedList.Add(tempSGP);
 
                 //Let's do a barrier
-                if (OpenList.Count > 1000)
+                if (OpenList.Count > 200)
                     timeConsumed = true;
 
                 //Generate children
