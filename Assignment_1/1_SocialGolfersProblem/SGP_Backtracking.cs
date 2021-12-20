@@ -13,7 +13,7 @@ namespace Assignment_1._1_SocialGolfersProblem
             int N = 5;
             int[,] board = new int[N * 8, 4];
 
-            if (solveSudoku(board, N, 0))
+            if (solveSGP(board, N, 0))
             {
                 // print solution
                 var result = GetCurrentSolutions(board, N);
@@ -28,10 +28,9 @@ namespace Assignment_1._1_SocialGolfersProblem
 
         #region core
 
-        public static bool solveSudoku(int[,] board, int n, int startRow = 0)
+        public static bool solveSGP(int[,] board, int n, int startRow = 0)
         {
-            int row = -1;
-            int col = -1;
+            int row = -1, col = -1;
             bool isEmpty = true;
 
             for (int i = 0; i < board.GetLength(0); i++)
@@ -47,16 +46,12 @@ namespace Assignment_1._1_SocialGolfersProblem
                     }
                 }
                 if (!isEmpty)
-                {
                     break;
-                }
             }
 
             // no empty space left
             if (isEmpty)
-            {
                 return true;
-            }
 
             // else for each-row backtrack
             for (int num = 1; num <= 32; num++)
@@ -64,15 +59,10 @@ namespace Assignment_1._1_SocialGolfersProblem
                 if (isSafe(board, row, col, num))
                 {
                     board[row, col] = num;
-                    if (solveSudoku(board, n, row))
-                    {
+                    if (solveSGP(board, n, row))
                         return true;
-                    }
                     else
-                    {
-                        // Replace it
                         board[row, col] = 0; //backtrace
-                    }
                 }
             }
             return false;
@@ -90,10 +80,7 @@ namespace Assignment_1._1_SocialGolfersProblem
 
             var res = GetCurrentSolutions(board, kRow);
             for (int j = 0; j < res.Item2.GetLength(1); j++)
-            {
                 for (int i = 0; i < res.Item2.GetLength(0); i++)
-                {
-
                     if (res.Item2[i, j] == num)
                     {
                         if (i == row && j == col)
@@ -101,8 +88,6 @@ namespace Assignment_1._1_SocialGolfersProblem
                         else
                             return false;
                     }
-                }
-            }
 
             return CheckValidationInsertion(res.Item1, res.Item2);
         }
@@ -189,7 +174,6 @@ namespace Assignment_1._1_SocialGolfersProblem
                 if (!parseModel)
                     break;
             }
-
             return (boardListStatus, currentBoard);
         }
 

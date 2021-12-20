@@ -16,16 +16,9 @@ namespace Assignment_1._1_SocialGolfersProblem
             Layer4 = Enumerable.Range(25, 8).ToArray()
         });
         public bool Started { get; set; }
+
         public SGP_DFS()
-        {
-
-        }
-
-        public bool CheckTarget(SGP tempSGP)
-        {
-            //{ Block code here}
-            return true;
-        }
+        { }
 
         public List<SGP> GenerateChildren(SGP tempSGP)
         {
@@ -33,22 +26,6 @@ namespace Assignment_1._1_SocialGolfersProblem
 
             for (int i = 0; i < 4; i++)
             {
-                //switch (i)
-                //{
-                //    case 0:
-                //        childSGP1.PresentationLayer = tempSGP.Representation.Layer1;
-                //        break;
-                //    case 1:
-                //        childSGP1.PresentationLayer = tempSGP.Representation.Layer2;
-                //        break;
-                //    case 2:
-                //        childSGP1.PresentationLayer = tempSGP.Representation.Layer3;
-                //        break;
-                //    case 3:
-                //        childSGP1.PresentationLayer = tempSGP.Representation.Layer4;
-                //        break;
-                //}
-
                 //sjell majtas layer 1
                 childSGP1.Level = tempSGP.Level + 1;
                 childSGP1.Layer = 1;

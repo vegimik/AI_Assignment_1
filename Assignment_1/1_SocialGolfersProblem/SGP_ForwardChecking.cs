@@ -16,7 +16,7 @@ namespace Assignment_1._1_SocialGolfersProblem
             int N = 2;
             int[,] board = new int[N * 8, 4];
 
-            if (solveSudoku(board, N, Enumerable.Range(1, 32).ToList(), 0))
+            if (solveSGP(board, N, Enumerable.Range(1, 32).ToList(), 0))
             {
                 // print solution
                 var result = GetCurrentSolutions(board, N);
@@ -31,7 +31,7 @@ namespace Assignment_1._1_SocialGolfersProblem
 
         #region core
 
-        public static bool solveSudoku(int[,] board, int n, List<int> candidateNumber, int startRow = 0)
+        public static bool solveSGP(int[,] board, int n, List<int> candidateNumber, int startRow = 0)
         {
             int row = -1;
             int col = -1;
@@ -91,7 +91,7 @@ namespace Assignment_1._1_SocialGolfersProblem
                 if (isSafe(board, candidateNumber, row, col, num))
                 {
                     board[row, col] = num;
-                    if (solveSudoku(board, n, list.ToList(), startRow))//step forward
+                    if (solveSGP(board, n, list.ToList(), startRow))//step forward
                         return true;
                 }
                 else

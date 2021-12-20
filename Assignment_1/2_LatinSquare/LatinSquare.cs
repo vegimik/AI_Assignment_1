@@ -4,9 +4,9 @@ namespace Assignment_1._2_LatinSquare
 {
     public class LatinSquare
     {
+        public int Level;
         public int[] Representation { get; set; }
         public LatinSquare Parent;
-        public int Level;
         public List<LatinSquare> Children;
 
         public LatinSquare(int[] _representation)

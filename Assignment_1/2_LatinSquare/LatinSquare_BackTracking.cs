@@ -6,17 +6,7 @@ namespace Assignment_1._2_LatinSquare
     public static class LatinSquare_BackTracking
     {
         static int N = 5;
-        static int[,] grid = {
-                   { 1,2,3,4,5,6,7,8,9 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 },
-                   { 0,0, 0, 0, 0, 0, 0, 0, 0 }
-            };
+        static int[,] grid;
 
         // Driver code
         public static void Main_LatinSquare_BackTracking()

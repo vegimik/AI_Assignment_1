@@ -7,7 +7,7 @@ namespace Assignment_1._2_LatinSquare
 {
     public static class LatinSquare_BFS
     {
-        public static LatinSquare latinSquare { get; set; }// = new LatinSquare(LatinSquaresList(1));
+        public static LatinSquare latinSquare { get; set; }
         public static void SetLatinSquares(int n)
         {
             var list = new int[n];
@@ -17,6 +17,7 @@ namespace Assignment_1._2_LatinSquare
                 list = Enumerable.Range(1, 5).ToArray();
             latinSquare = new LatinSquare(list);
         }
+
         public static void Main_LatinSquare()
         {
             Queue<LatinSquare> OpenList = new Queue<LatinSquare>();

@@ -8,6 +8,7 @@ namespace Assignment_1._2_LatinSquare
     public static class LatinSquare_DFS
     {
         public static LatinSquare latinSquare { get; set; }
+
         public static void SetLatinSquares(int n)
         {
             var list = new int[n];
@@ -17,6 +18,8 @@ namespace Assignment_1._2_LatinSquare
                 list = Enumerable.Range(1, 5).ToArray();
             latinSquare = new LatinSquare(list);
         }
+
+        //Drive Method
         public static void Main_LatinSquare()
         {
             Stack<LatinSquare> OpenList = new Stack<LatinSquare>();

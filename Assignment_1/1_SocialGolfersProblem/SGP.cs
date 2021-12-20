@@ -19,12 +19,14 @@ namespace Assignment_1._1_SocialGolfersProblem
             Level = 0;
         }
 
-        public SGP(Representation _representation, int _level) : this(_representation)
+        public SGP(Representation _representation, int _level) 
+            : this(_representation)
         {
             Level = _level;
         }
 
-        public SGP(Representation _representation, int[] _presentationLayer, SGP _parent, int _layer) : this(_representation)
+        public SGP(Representation _representation, int[] _presentationLayer, SGP _parent, int _layer) 
+            : this(_representation)
         {
             PresentationLayer = _presentationLayer;
             Parent = _parent;

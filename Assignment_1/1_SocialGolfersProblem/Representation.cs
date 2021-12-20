@@ -8,9 +8,7 @@
         public int[] Layer4 { get; set; } = new int[8];
 
         public Representation()
-        {
-
-        }
+        {}
 
         public Representation(int[,] _representation)
         {

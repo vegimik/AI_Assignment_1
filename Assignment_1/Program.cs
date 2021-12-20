@@ -1,4 +1,5 @@
 ﻿using Assignment_1._1_SocialGolfersProblem;
+using Assignment_1._2_LatinSquare;
 
 namespace Assignment_1
 {
