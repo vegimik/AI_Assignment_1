@@ -13,7 +13,7 @@ namespace Assignment_1._1_SocialGolfersProblem
 
         public static void Main_SGP_ForwardChecking()
         {
-            int N = 2;
+            int N = 3;
             int[,] board = new int[N * 8, 4];
 
             if (solveSGP(board, N, Enumerable.Range(1, 32).ToList(), 0))
@@ -63,15 +63,18 @@ namespace Assignment_1._1_SocialGolfersProblem
             }
 
             if (row != 0 && row % 8 == 0 && col == 0)
-                candidateNumber = Enumerable.Range(1, 32).ToList();
+            {
+                var herce = row / 8;
+                //var list = Enumerable.Range(herce+1, 32- herce ).ToList();
+                //list.AddRange(Enumerable.Range(1, herce ).ToList());
+                var list = Enumerable.Range(1, 32).ToList();
+                var modifiedList = ConvertRepresentationToList(ShuffleRepresentation(ConvertListToRepresentation(list), herce));
+                candidateNumber = modifiedList;
 
+            }
             // else for each-row backtrack
             for (int num = 1; num <= 32; num++)
             {
-                if (row == 15)
-                {
-
-                }
                 if (forwardChecking(board, n, candidateNumber, row, col, num, startRow))
                     valid = true;
             }
@@ -239,6 +242,111 @@ namespace Assignment_1._1_SocialGolfersProblem
                 }
             }
             return result;
+        }
+
+        public static Representation ShuffleRepresentation(Representation _representation, int layer)
+        {
+            var shuffleRepresentation = RotateLeft(_representation, 1);
+            shuffleRepresentation = RotateLeft(shuffleRepresentation, 2);
+            shuffleRepresentation = RotateLeft(shuffleRepresentation, 2);
+            shuffleRepresentation = RotateLeft(shuffleRepresentation, 3);
+            shuffleRepresentation = RotateLeft(shuffleRepresentation, 3);
+            shuffleRepresentation = RotateLeft(shuffleRepresentation, 3);
+            return shuffleRepresentation;
+        }
+
+        public static Representation RotateLeft(Representation _representation, int layer)
+        {
+            var tempArr = new int[8];
+            var representation = new Representation(_representation.Layer1, _representation.Layer2, _representation.Layer3, _representation.Layer4);
+            switch (layer)
+            {
+                case 1:
+                    Array.Copy(representation.Layer2, tempArr, tempArr.Length);
+                    break;
+                case 2:
+                    Array.Copy(representation.Layer3, tempArr, tempArr.Length);
+                    break;
+                case 3:
+                    Array.Copy(representation.Layer4, tempArr, tempArr.Length);
+                    break;
+            }
+
+            var temp = tempArr[tempArr.Length - 1];
+            for (int i = tempArr.Length - 1; i >= 1; i--)
+                tempArr[i] = tempArr[i - 1];
+            tempArr[0] = temp;
+
+            switch (layer)
+            {
+                case 1:
+                    representation.Layer2 = tempArr;
+                    break;
+                case 2:
+                    representation.Layer3 = tempArr;
+                    break;
+                case 3:
+                    representation.Layer4 = tempArr;
+                    break;
+            }
+
+            return representation;
+        }
+
+        public static Representation ConvertListToRepresentation(List<int> list)
+        {
+            var listMatrix = new int[8, 4];
+            var indx = 0;
+            for (int j = 0; j < listMatrix.GetLength(1); j++)
+            {
+                for (int i = 0; i < listMatrix.GetLength(0); i++)
+                {
+                    listMatrix[i, j] = list[indx++];
+                }
+
+            }
+
+            return new Representation(listMatrix);
+        }
+
+        public static List<int> ConvertRepresentationToList(Representation representation)
+        {
+            int proj = 0, indx = 0;
+            int[,] projection = new int[8, 4];
+            var list = new List<int>();
+            for (int j = 0; j < projection.GetLength(1); j++)
+            {
+                for (int i = 0; i < projection.GetLength(0); i++)
+                {
+                    switch (j)
+                    {
+                        case 0:
+                            proj = representation.Layer1[i];
+                            break;
+                        case 1:
+                            proj = representation.Layer2[i];
+                            break;
+                        case 2:
+                            proj = representation.Layer3[i];
+                            break;
+                        case 3:
+                            proj = representation.Layer4[i];
+                            break;
+                    }
+                    projection[i, j] = proj;
+                }
+            }
+
+
+            for (int j = 0; j < projection.GetLength(1); j++)
+            {
+                for (int i = 0; i < projection.GetLength(0); i++)
+                {
+                    list.Add(projection[i, j]);
+                }
+
+            }
+            return list;
         }
 
         #endregion helper methods
