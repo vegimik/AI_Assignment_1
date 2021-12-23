@@ -7,8 +7,9 @@ namespace Assignment_1
     {
         static void Main(string[] args)
         {
-            SGP_Init.Drive();
-            //LatinSquare_Init.Drive();
+            //SGP_Init.Drive();
+            LatinSquare_Init.Drive();
+
 
         }
 
