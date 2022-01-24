@@ -1,5 +1,6 @@
 ﻿using Assignment_1._1_SocialGolfersProblem;
 using Assignment_1._2_LatinSquare;
+using System;
 
 namespace Assignment_1
 {
@@ -8,9 +9,10 @@ namespace Assignment_1
         static void Main(string[] args)
         {
             //SGP_Init.Drive();
-            LatinSquare_Init.Drive();
+            //LatinSquare_Init.Drive();
 
-
+            var objValidator = new SGP_Validator();
+            objValidator.CheckSolution();
         }
 
         public static void Main_Menu()
